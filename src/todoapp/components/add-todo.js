@@ -1,33 +1,31 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
-import TodoListApp from "./todo-list-app";
+import isEmpty from "lodash/isEmpty";
 
 class AddTodo extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { todoText: '' };
-		
 		this.onAddTodoTextChange = this.onAddTodoTextChange.bind(this);
 		this.createAddTodoItem = this.createAddTodoItem.bind(this);
 	}
 	
 	onAddTodoTextChange(e) {
-		this.setState({todoText: e.currentTarget.value});
+		let { onAddTodoTextChange } = this.props;
+		onAddTodoTextChange(e.currentTarget.value);
 	}
 	
 	createAddTodoItem(e) {
-		let { createAddTodoItem } = this.props;
-		let { todoText } = this.state;
+		let { createAddTodoItem, todoText, onAddTodoTextChange } = this.props;
+		if(isEmpty(todoText)) return;
 		createAddTodoItem(todoText);
-		this.setState({todoText: ''});
+		onAddTodoTextChange('');
 	}
 	
 	render() {
-		let { onAddTodoTextChange } = this.props;
-		let { todoText } = this.state;
+		let { todoText } = this.props;
 		return (
 			<form>
-				<input type="text" onChange={this.onAddTodoTextChange} value={todoText}/>
+				<input type="text" onChange={this.onAddTodoTextChange} value={todoText} placeholder="type..."/>
 				<button type="button" onClick={this.createAddTodoItem}>+</button>
 			</form>
 		);

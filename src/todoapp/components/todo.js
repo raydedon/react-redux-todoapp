@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './todo.css'
+import '../todo.css'
 
 class Todo extends Component {
 	constructor(props) {
@@ -15,8 +15,9 @@ class Todo extends Component {
 	}
 	
 	render() {
-		let { onClick, completed, text, id } = this.props;
-		return <li className={`${completed ? 'todo-completed' : 'todo-yetto-complete'}`} onClick={this.markCompleted}>{text}</li>;
+		let { completed, text } = this.props;
+		return <li className={`${completed ? 'todo-completed' : 'todo-yetto-complete'}`}
+				   onClick={this.markCompleted}>{text}</li>;
 	}
 }
 

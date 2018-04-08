@@ -10,7 +10,7 @@ class TodoList extends Component {
 	}
 	
 	renderListItems() {
-		let { list, markCompleted } = this.props, arr = [];
+		let { list, markCompleted } = this.props;
 		return list.map((todo) => <Todo completed={todo.completed}
 										markCompleted={markCompleted}
 										text={todo.text}
@@ -19,7 +19,6 @@ class TodoList extends Component {
 	}
 	
 	render() {
-		let { list } = this.props;
 		return <ul>{this.renderListItems()}</ul>;
 	}
 }

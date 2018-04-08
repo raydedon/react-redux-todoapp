@@ -3,6 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from "./todoapp/reducers";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = createStore(rootReducer, {list: [{id: 0, text: 'jai shri ram', completed: false}]});
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById('root'));
+
 registerServiceWorker();
