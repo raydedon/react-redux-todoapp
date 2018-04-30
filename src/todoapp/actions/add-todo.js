@@ -1,11 +1,13 @@
 export const ADD_TODO = 'ADD_TODO';
 export const ADD_TODO_INPUT_TEXT_CHANGE = 'ADD_TODO_INPUT_TEXT_CHANGE';
+let counter = 0;
+export function incCounter() {
+	return ++counter;
+}
 
-let nextTodoId = 0;
-
-export const createTodo = text => ({
+export const createTodo = (text, todoId) => ({
 	type: ADD_TODO,
-	id: ++nextTodoId,
+	id: todoId,
 	text,
 	completed: false
 });

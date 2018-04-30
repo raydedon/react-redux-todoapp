@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {createTodo, onAddTodoTextChange} from "../actions/add-todo";
+import {incCounter, createTodo, onAddTodoTextChange} from "../actions/add-todo";
 import AddTodo from "../components/add-todo";
 
 const mapStateToProps = state => ({
@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	createAddTodoItem: text => dispatch(createTodo(text)),
+	createAddTodoItem: text => dispatch(createTodo(text, incCounter())),
 	onAddTodoTextChange: text => dispatch(onAddTodoTextChange(text))
 });
 
