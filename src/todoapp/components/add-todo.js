@@ -8,24 +8,24 @@ class AddTodo extends Component {
 		this.onAddTodoTextChange = this.onAddTodoTextChange.bind(this);
 		this.createAddTodoItem = this.createAddTodoItem.bind(this);
 	}
-	
+
 	onAddTodoTextChange(e) {
 		let { onAddTodoTextChange } = this.props;
 		onAddTodoTextChange(e.currentTarget.value);
 	}
-	
+
 	createAddTodoItem(e) {
-		let { createAddTodoItem, todoText, onAddTodoTextChange } = this.props;
-		if(isEmpty(todoText)) return;
-		createAddTodoItem(todoText);
+		let { createAddTodoItem, addTodoText, onAddTodoTextChange } = this.props;
+		if(isEmpty(addTodoText)) return;
+		createAddTodoItem(addTodoText);
 		onAddTodoTextChange('');
 	}
-	
+
 	render() {
-		let { todoText } = this.props;
+		let { addTodoText } = this.props;
 		return (
 			<form>
-				<input type="text" onChange={this.onAddTodoTextChange} value={todoText} placeholder="type..."/>
+				<input type="text" onChange={this.onAddTodoTextChange} value={addTodoText} placeholder="type..."/>
 				<button type="button" onClick={this.createAddTodoItem}>+</button>
 			</form>
 		);

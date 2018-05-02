@@ -3,7 +3,7 @@ import {incCounter, createTodo, onAddTodoTextChange} from "../actions/add-todo";
 import AddTodo from "../components/add-todo";
 
 const mapStateToProps = state => ({
-	todoText: state.todoText
+	addTodoText: state.addTodoText
 });
 
 const mapDispatchToProps = dispatch => ({

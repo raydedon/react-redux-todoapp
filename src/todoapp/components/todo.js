@@ -16,11 +16,10 @@ class Todo extends Component {
 	}
 	
 	render() {
-		let { completed, text } = this.props;
+		let {id, completed, text} = this.props;
 		return (
-			<li className={`todo-item ${completed ? 'todo-completed' : 'todo-notcomplete'}`}
-			    onClick={this.markCompleted}>
-				<TodoTextCont text={text}/>
+			<li className={`todo-item ${completed ? 'todo-completed' : 'todo-notcomplete'} list-unstyled`}>
+				<TodoTextCont text={text} id={id} markCompleted={this.markCompleted}/>
 			</li>
 		);
 	}

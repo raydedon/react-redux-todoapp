@@ -2,7 +2,8 @@ import {TODO_MARK_COMPLETED} from "../actions";
 import {ADD_TODO} from "../actions/add-todo";
 import {SAVE_TODO_TEXT} from "../actions/todo-item";
 
-const list = (state = [], {type, text = '', completed = false, id}) => {
+const list = (state = [], action) => {
+	let {type, text = '', completed = false, id} = action;
 	switch(type) {
 		case ADD_TODO:
 			return [...state, {text, completed: false, id}];

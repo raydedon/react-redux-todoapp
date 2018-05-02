@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
+import addTodoText from "./add-todo-text";
 import list from './todos';
-import todoText from "./add-todo";
-import editTodoText from "./edit-todo";
+import editTodoObj from "./edit-todo-obj";
 
 const rootReducer = combineReducers({
+	addTodoText,
 	list,
-	todoText,
-	editTodoText
+	editTodoObj,
 });
 
 export default rootReducer;

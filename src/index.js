@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from "./todoapp/reducers";
 
-const store = createStore(rootReducer, {list: [{id: 0, text: 'jai shri ram', completed: false}]});
+const store = createStore(rootReducer, {list: [{id: 1, text: 'jai shri ram', completed: false}]});
 ReactDOM.render(
 	<Provider store={store}>
 		<App />

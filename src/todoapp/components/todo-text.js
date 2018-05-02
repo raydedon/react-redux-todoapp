@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import './todo-text.css'
 
 
 class TodoText extends Component {
@@ -9,6 +9,7 @@ class TodoText extends Component {
 		this.editTodo = this.editTodo.bind(this);
 		this.saveTodo = this.saveTodo.bind(this);
 		this.onEditTodoTextChange = this.onEditTodoTextChange.bind(this);
+		this.markCompleted = this.markCompleted.bind(this);
 	}
 	
 	editTodo(e) {
@@ -28,17 +29,23 @@ class TodoText extends Component {
 		onEditTodoTextChange(e.currentTarget.value);
 	}
 
+	markCompleted() {
+		let { id, markCompleted } = this.props;
+		markCompleted(id);
+	}
+
 	render() {
-		let {text, editTodoText} = this.props;
+		let {text, editTodoText, editActive} = this.props;
 		return (
-			<div className={}>
-				<div className="readonly-todo">
+			<div className={`todo-text-display ${editActive ? 'edit-active' : ''}`}>
+				<div className="readonly-todo"
+					 onClick={this.markCompleted}>
 					<span className={'todo-text'}>{text}</span>
-					<a href={'#'} onClick={this.editTodo} className="todo-text-edit"><i class="fas fa-pencil-alt"></i></a>
+					<a onClick={this.editTodo} className="todo-text-edit"><i className="fas fa-pencil-alt"></i></a>
 				</div>
 				<div className="edit-todo">
-					<input type="text" value={editTodoText} onChange={this.onEditTodoTextChange} className={'todo-input'}/>
-					<a href={'#'} onClick={this.editTodo} className="todo-text-save"><i class="fas fa-check"></i></a>
+					<input type="text" value={editTodoText} onChange={this.onEditTodoTextChange} className={'todo-input input-sm'}/>
+					<a onClick={this.saveTodo} className="todo-text-save"><i className="fas fa-check"></i></a>
 				</div>
 			</div>
 		)
