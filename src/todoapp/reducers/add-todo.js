@@ -7,6 +7,6 @@ const todoText = (state = '', {type, text}) => {
 		default:
 			return state;
 	}
-}
+};
 
 export default todoText;

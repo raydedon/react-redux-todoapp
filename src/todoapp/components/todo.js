@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../todo.css'
+import './todo.css'
+import TodoTextCont from "../containers/todo-text-cont";
 
 class Todo extends Component {
 	constructor(props) {
@@ -16,8 +17,12 @@ class Todo extends Component {
 	
 	render() {
 		let { completed, text } = this.props;
-		return <li className={`${completed ? 'todo-completed' : 'todo-yetto-complete'}`}
-				   onClick={this.markCompleted}>{text}</li>;
+		return (
+			<li className={`todo-item ${completed ? 'todo-completed' : 'todo-notcomplete'}`}
+			    onClick={this.markCompleted}>
+				<TodoTextCont text={text}/>
+			</li>
+		);
 	}
 }
 
